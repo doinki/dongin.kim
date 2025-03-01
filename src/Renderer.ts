@@ -7,7 +7,7 @@ export class Renderer {
   renderText(text: string) {
     const maxTextWidth = this.canvas.width * 0.9;
 
-    const fontSize = 100 * window.devicePixelRatio;
+    const fontSize = 100 * 2;
     this.ctx.fillStyle = 'white';
     this.ctx.font = `${fontSize}px Roboto, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`;
     this.ctx.letterSpacing = '0.125em';

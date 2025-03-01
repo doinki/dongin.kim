@@ -29,8 +29,8 @@ export class Particle {
   }
 
   update(x: number, y: number, radius: number) {
-    const dx = x * window.devicePixelRatio - this.x;
-    const dy = y * window.devicePixelRatio - this.y;
+    const dx = x * 2 - this.x;
+    const dy = y * 2 - this.y;
     const distance = dx ** 2 + dy ** 2;
 
     if (distance < radius) {

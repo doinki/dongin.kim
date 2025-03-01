@@ -2,8 +2,8 @@ import { Effect } from './Effect.ts';
 import { Renderer } from './Renderer.ts';
 
 const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-canvas.width = window.innerWidth * window.devicePixelRatio;
-canvas.height = window.innerHeight * window.devicePixelRatio;
+canvas.width = window.innerWidth * 2;
+canvas.height = window.innerHeight * 2;
 const ctx = canvas.getContext('2d', {
   willReadFrequently: true,
 })!;
@@ -11,7 +11,7 @@ const ctx = canvas.getContext('2d', {
 const pointer = {
   x: 0,
   y: 0,
-  radius: 10000 * window.devicePixelRatio ** 2,
+  radius: 10000 * 2 ** 2,
 };
 window.addEventListener('pointermove', (e) => {
   pointer.x = e.x;
@@ -36,8 +36,8 @@ const renderText = debounce(() => {
   effect.convertToParticles();
 });
 const resizeCanvas = () => {
-  canvas.width = window.innerWidth * window.devicePixelRatio;
-  canvas.height = window.innerHeight * window.devicePixelRatio;
+  canvas.width = window.innerWidth * 2;
+  canvas.height = window.innerHeight * 2;
   renderText();
 };
 window.addEventListener('resize', resizeCanvas);
