@@ -1,7 +1,7 @@
 export class Renderer {
   constructor(
     private canvas: HTMLCanvasElement,
-    private ctx: CanvasRenderingContext2D
+    private ctx: CanvasRenderingContext2D,
   ) {}
 
   renderText(text: string) {
@@ -13,16 +13,16 @@ export class Renderer {
     this.ctx.letterSpacing = '0.125em';
     this.ctx.textAlign = 'center';
 
-    let words = text.split(' ');
+    const words = text.split(' ');
     const linesArray = [];
     let lineCounter = 0;
     let line = '';
 
-    for (let i = 0; i < words.length; i++) {
-      let temp = line + words[i] + ' ';
+    for (const word of words) {
+      const temp = line + word + ' ';
 
       if (this.ctx.measureText(temp).width > maxTextWidth) {
-        line = words[i] + ' ';
+        line = word + ' ';
         lineCounter++;
       } else {
         line = temp;
@@ -35,7 +35,7 @@ export class Renderer {
       this.ctx.fillText(
         el,
         this.canvas.width / 2,
-        this.canvas.height / 2 - (fontSize * lineCounter) / 2 + index * fontSize
+        this.canvas.height / 2 - (fontSize * lineCounter) / 2 + index * fontSize,
       );
     });
   }

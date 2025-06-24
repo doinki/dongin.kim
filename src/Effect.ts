@@ -2,22 +2,17 @@ import { Particle } from './Particle.ts';
 
 export class Effect {
   private particles: Particle[] = [];
-  private gap: number = 8;
+  private gap = 8;
 
   constructor(
     private canvas: HTMLCanvasElement,
-    private ctx: CanvasRenderingContext2D
+    private ctx: CanvasRenderingContext2D,
   ) {}
 
   convertToParticles() {
     this.particles = [];
 
-    const pixels = this.ctx.getImageData(
-      0,
-      0,
-      this.canvas.width,
-      this.canvas.height
-    ).data;
+    const pixels = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height).data;
 
     for (let y = 0; y < this.canvas.height; y += this.gap) {
       for (let x = 0; x < this.canvas.width; x += this.gap) {
@@ -25,9 +20,7 @@ export class Effect {
         const alpha = pixels[index + 3];
 
         if (alpha > 0) {
-          this.particles.push(
-            new Particle(this.canvas, this.ctx, x, y, this.gap * 0.8)
-          );
+          this.particles.push(new Particle(this.canvas, this.ctx, x, y, this.gap * 0.8));
         }
       }
     }

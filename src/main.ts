@@ -9,9 +9,9 @@ const ctx = canvas.getContext('2d', {
 })!;
 
 const pointer = {
+  radius: 10_000 * 2 ** 2,
   x: 0,
   y: 0,
-  radius: 10000 * 2 ** 2,
 };
 window.addEventListener('pointermove', (e) => {
   pointer.x = e.x;

@@ -2,23 +2,21 @@ export class Particle {
   private x: number;
   private y: number;
 
-  private vx: number = 0;
-  private vy: number = 0;
+  private vx = 0;
+  private vy = 0;
 
-  private friction: number = 0.5;
-  private ease: number = Math.random() * 0.2 + 0.01;
+  private friction = 0.5;
+  private ease = Math.random() * 0.2 + 0.01;
 
   constructor(
     private canvas: HTMLCanvasElement,
     private ctx: CanvasRenderingContext2D,
     private originX: number,
     private originY: number,
-    private size: number
+    private size: number,
   ) {
     this.x = canvas.width * 0.5;
     this.y = canvas.height * 0.5;
-    this.originX = originX;
-    this.originY = originY;
   }
 
   draw() {
