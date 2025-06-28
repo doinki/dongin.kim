@@ -1,7 +1,11 @@
 .git
+.github
+.vscode
 dist
 node_modules
 .dockerignore
 .gitignore
+.prettierrc.json
 Dockerfile
+eslint.config.js
 LICENSE
